@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Testando</title>
+    <style>
+        body {
+            background: rgb(159, 238, 212);
+            font-family: Helvetica;
+        }
+        h1 {
+            color: rgb(84, 110, 194);
+        }
+
+        .sla {
+            text-align: center;
+        }
+
+        .res {
+            font-size: 20px;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="sla">
+    <h1>Eleva números ao quadrado</h1>
+    <input type="number" name="txtnum" id="txtnum">
+    <input type="button" value="Adicionar" onclick="adicionar ()">
+    </br> <br>
+    <input type="button" value="Finalizar" onclick="finalizar()">
+    <br> <br>
+    <div class="res" id="res"></div>
+    </div>
+
+    <script>
+        const valores = [];
+
+        function adicionar() {
+            const res = document.getElementById("res")
+            const numt = document.getElementById("txtnum")
+            const num = Number(numt.value);
+            valores.push(num);
+
+            res.innerHTML += `O valor ${num} foi adicionado </br>`
+            document.querySelector('#txtnum').value = "";
+        }
+
+        function finalizar () {
+            const quantidade = valores.length;
+            res.innerHTML = `Você digitou ${quantidade} valores </br>`
+            for (let i = 0; i <= quantidade - 1; i++) {
+                const quadrado = valores[i] * valores[i]
+                res.innerHTML += `O quadrado de ${valores[i]} é ${quadrado} </br>`
+            }
+
+        }
+        
+
+    </script>
+</body>
+</html>
